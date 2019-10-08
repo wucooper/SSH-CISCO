@@ -1,0 +1,38 @@
+
+
+# Install pip in Ubuntu if it not exists:
+
+
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/lib/dpkg/lock
+
+# when executing apt-get install ..., you might see two files being locked, remove them, then progress with the installation
+sudo apt-get install python-pip
+sudo pip install --upgrade pip
+
+# Paramiko installation
+
+sudo pip install paramiko
+
+''' 
+Installation might fail saying "openssl/opensslv.h: No such file or director & x86_64-linux-gnu-gcc failed with exit status 1"
+
+Root cause:
+       missing file from the ssl dev package
+
+To resovle it, run:
+     sudo apt-get install build-essential libssl-dev libffi-dev python-dev        
+
+If CLI prompt says fail to build cryptography ...
+
+				sudo apt-get install python-openssl
+				sudo apt-get install python-gmpy
+				sudo apt-get install python-gmpy2
+     
+Progress with paramiko installation
+
+'''
+
+
