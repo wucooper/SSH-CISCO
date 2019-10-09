@@ -1,0 +1,13 @@
+---
+DEVICE_LIST:
+    - 10.48.76.1
+    - 172.31.7.2
+    - 172.31.7.3
+IOS_COMMAND:
+    - show proc cpu sort
+    - show proc memory sort
+    - show users
+    - show line
+    - show switch detail
+    - show ip eigrp events
+
