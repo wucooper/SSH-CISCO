@@ -1,0 +1,6 @@
+---
+CONFIGURATION:
+    user: xxx
+    password: xxx
+    concurrent:  5
+
