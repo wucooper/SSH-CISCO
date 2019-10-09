@@ -1,0 +1,7 @@
+
+'''
+This script was per request to integrate Cisco WLCs TACACS+ with ISE. There were over hundreds on-prem WLCs.
+
+CSV files were exported from ISE and fed into this script.
+
+'''
