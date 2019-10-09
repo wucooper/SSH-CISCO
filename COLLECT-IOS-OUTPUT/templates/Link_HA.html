@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Monitoring GHD Redundant links</title>
+  <script type="text/javascript">
+function load()
+{setTimeout("window.open(self.location, '_self');", 300000);}
+  </script>
+</head>
+<body onload="load()" style="width: 1331px;">
+<br>
+<div style="text-align: center; width: 1317px;"><big><big>&nbsp;Overview
+of GHD Redundant &nbsp;link state</big></big><small><br>
+</small></div>
+<br>
+<br>
+<table style="text-align: left; width: 1315px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="width: 146px; text-align: center; height: 45px;">Site/Device</td>
+      <td style="width: 332px; text-align: center; height: 45px;">Description</td>
+      <td style="width: 151px; text-align: center; height: 45px;">Timestamp</td>
+      <td style="width: 544px; text-align: center; height: 45px;">Details</td>
+      <td style="width: 98px; text-align: center; height: 45px;">State</td>
+    </tr>
+
+
+{% for dev_record in dev_results %}
+  {% if dev_record.result|length !=0 %} 
+    <tr>
+      <td rowspan = {{dev_record.result|length}}  style="width: 146px; text-align: center; height: 45px;">{{dev_record.Node}}</td>
+      <td rowspan = {{dev_record.result|length}}  style="width: 332px;">{{dev_record.State}}</td>
+      <td rowspan = {{dev_record.result|length}}  style="width: 151px; text-align: center; height: 45px;">{{dev_record.TimeStamp}}</td>
+      
+    {% for dev_state in dev_record.result %}
+
+      <td style="width: 544px; height: 45px;"> {{dev_state.PROTOCOL}}: Neighbor {{dev_state.neighbor}}, Duration {{dev_state.DURATION}}</td>
+      <td style="width: 98px; text-align: center; background-color: 
+       {% if dev_state.STATE == "Critical" %}
+       red
+       {% elif dev_state.STATE == "Healthy" %} 
+       green
+       {% else %}
+       yellow
+       {% endif %}
+       ; height: 45px;"> {{dev_state.STATE}} </td>
+
+    </tr>
+    {% endfor %}
+
+  {% endif %}
+{% endfor %}
+
+ 
+  </tbody>
+</table>
+<br>
+&nbsp;&nbsp; &nbsp; &nbsp; <br>
+<br>
+<br>
+<br>
+<br>
+Developed by: &nbsp;Cooper Wu (Wei Wu)<br>
+Email Address: &nbsp; &nbsp; wei.wu@ghd.com<br>
+<br>
+</body>
+</html>
