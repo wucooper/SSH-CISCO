@@ -1,0 +1,18 @@
+# YAML module required to read from YML file
+
+# Jinja2 module required
+
+'''
+Script 1:
+  collect_output.py
+   get credentials and concurrent pamaraters from NetworkConfig.yml
+   go through NetworkDev.yml and ssh them to collect specified IOS show commands
+   This can be put into crontab to run periodically
+
+Script 2:
+  REMOTE_TEST_F2.py
+    get credentials and concurrent parameters from NetworkConfig.yml
+    Read dev profiles from IP_LIST.yml
+    check dev's BGP and EIGRP status.
+
+'''
